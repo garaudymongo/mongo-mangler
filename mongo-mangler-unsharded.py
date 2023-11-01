@@ -417,8 +417,7 @@ def createCollection(adminDB, db, collname, compression, isClusterSharded, shard
                      rangeShardKeySplits, indtendedSize, isFinalCollection):
     dropCollection(db, collname)
 
-    doShardCollection = True if (isClusterSharded and (isFinalCollection or
-                                 (indtendedSize >= LARGE_COLLN_COUNT_THRESHOLD))) else False
+    doShardCollection = False
 
     # Create the collection a specific compression algorithm
     db.create_collection(collname, storageEngine={"wiredTiger":
